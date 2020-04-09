@@ -1,31 +1,21 @@
 # koop-provider-csv-covid-esri
 
-A minimal Koop project template from [Koop CLI](https://github.com/koopjs/koop-cli).
+This provider is converting [this CSV](https://code.montera34.com:4443/numeroteca/covid19/-/raw/master/data/output/spain/covid19-provincias-spain_consolidated.csv) to a GeoJSON.
 
-See the [specification](https://koopjs.github.io/docs/usage/koop-core) for more details.
+> Note: this script is been used in conjuntion [with this one](https://github.com/esri-es/geovoluntarios.org/blob/master/code/solicitud-esri-espana/refresh_providencialdata19.js) to push data the CSV to a [geographic layer on ArcGIS Online](https://comunidadcovid.maps.arcgis.com/home/item.html?id=2900a255ae0f47779bf9b2036e9d0d87#visualize)
 
-## Configuration
-
-This project is configured with [config](https://www.npmjs.com/package/config). As a community practice, it is recommanded to namespace the configuration for plugins in order to avoid any potential key conflict.
-
-## Development
-
-### Testing
-
-This project uses [mocah](https://www.npmjs.com/package/mocha) as the testing framework and [chaijs](https://www.chaijs.com/) as the assertion library. All test files in the `test` directory should have the special extension `.test.js`, which will be executed by the command:
+# How to install
 
 ```
-$ npm test
+git clone git@github.com:esri-es/koop-provider-csv-covid-esri.git
+cd koop-provider-csv-covid-esri
+npm install
+koop serve
 ```
 
-### Dev Server
+# How to get the GeoJSON data
 
-This project by default uses the [Koop CLI](https://github.com/koopjs/koop-cli) to set up the dev server. It can be invoded via
+Open this URLs:
 
-```
-$ npm start
-```
-
-The server will be running at `http://localhost:8080` or at the port specified at the configuration.
-
-For more details, check the [Koop CLI documentation](https://github.com/koopjs/koop-cli/blob/master/README.md).
+* RAW data: http://localhost:8080/koop-provider-csv-cofid-esri/0/FeatureServer/0/query?f=json
+* Map viewer: http://www.arcgis.com/home/webmap/viewer.html?panel=gallery&suggestField=true&url=http://localhost:8080/koop-provider-csv-cofid-esri/0/FeatureServer/0
